@@ -21,7 +21,6 @@ function App() {
   const dispatch = useDispatch();
 
   const _session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
-
   const is_session = sessionStorage.getItem(_session_key) ? true : false;
 
   React.useEffect(() => {
