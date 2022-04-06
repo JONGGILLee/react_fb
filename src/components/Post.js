@@ -23,12 +23,14 @@ const Post = (props) => {
           <Image shape="rectangle" src={props.src} />
         </Grid>
         <Grid padding="16px">
-          <Text bold>댓글 개수는 {props.comment_cnt}개 입니다.</Text>
+          <Text margin="0px" bold>
+            댓글 개수는 {props.comment_cnt}개 입니다.
+          </Text>
         </Grid>
-        <div>user profile / user name / insert_date</div>
+        {/* <div>user profile / user name / insert_date</div>
         <div>contents</div>
         <div>image</div>
-        <div>comment count</div>
+        <div>comment count</div> */}
       </Grid>
     </React.Fragment>
   );
