@@ -3,6 +3,7 @@ import React from "react";
 import { Grid, Text, Input, Button } from "../elements";
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
+import { emailCheck } from "../shared/common";
 
 const Signup = (props) => {
   const dispatch = useDispatch();
@@ -14,9 +15,19 @@ const Signup = (props) => {
 
   const signup = () => {
     if (id === "" || pwd === "" || user_name === "") {
+      window.alert("아이디, 패스워드, 닉네임을 모두 입력해주세요");
+      return;
+    }
+    if (!emailCheck(id)) {
+      window.alert("입력하신 값이 이메일 형식에 맞지 않습니다!");
       return;
     }
     if (pwd !== pwd_check) {
+      window.alert("비밀번호가 일치하지 않습니다!");
+      return;
+    }
+    if (pwd.length <= 5) {
+      window.alert("비밀번호를 최소 6자리 이상 입력해주세요!");
       return;
     }
 

@@ -5,6 +5,7 @@ import { getCookie, setCookie, deleteCookie } from "../shared/Cookie";
 
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
+import { emailCheck } from "../shared/common";
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -13,8 +14,14 @@ const Login = (props) => {
   const [pwd, setPwd] = React.useState("");
 
   const login = () => {
+    console.log(id);
+
     if (id === "" || pwd === "") {
-      window.alert("아이디 혹은 비밀번호를 입력해주세요");
+      window.alert("아이디 혹은 비밀번호를 입력해주세요!");
+      return;
+    }
+    if (!emailCheck(id)) {
+      window.alert("이메일 형식이 아닙니다!");
       return;
     }
 
@@ -32,8 +39,6 @@ const Login = (props) => {
             placeholder="아이디를 입력하세요"
             _onChange={(e) => {
               setId(e.target.value);
-
-              console.log("아이디를 입력했습니다");
             }}
           />
         </Grid>
@@ -44,16 +49,12 @@ const Login = (props) => {
             type="password"
             _onChange={(e) => {
               setPwd(e.target.value);
-
-              console.log("패스워드를 입력했습니다");
             }}
           />
         </Grid>
         <Button
           text="로그인하기"
           _onClick={() => {
-            console.log("로그인 했습니다!");
-
             login();
             // 누르면 쿠키를 저장.
             // deleteCookie("user_id");
