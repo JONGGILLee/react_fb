@@ -44,5 +44,5 @@ CommentItem.defaultProps = {
   user_id: "",
   post_id: 1,
   contents: "콘텐츠 기본값",
-  insert_dt: "2022-04-04 10:00:00",
+  insert_dt: "2022-04-05 10:00:00",
 };
