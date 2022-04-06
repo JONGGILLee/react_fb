@@ -19,6 +19,7 @@ firebase.initializeApp(firebaseConfig);
 const apiKey = firebaseConfig.apiKey;
 const auth = firebase.auth();
 const firestore = firebase.firestore();
+// 파이어스토어 연동하기
 const storage = firebase.storage();
 const realtime = firebase.database();
 

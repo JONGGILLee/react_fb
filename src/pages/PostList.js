@@ -2,12 +2,18 @@
 
 import React from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Post from "../components/Post";
+import { actionCreators as postActions } from "../redux/modules/post";
 
 const PostList = (props) => {
   const post_list = useSelector((state) => state.post.list);
   console.log(post_list);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(postActions.getPostFB());
+  }, []);
 
   return (
     <React.Fragment>
