@@ -11,6 +11,8 @@ const PostWrite = (props) => {
   const is_login = useSelector((state) => state.user.is_login);
   const { history } = props;
 
+  const preview = useSelector((state) => state.image.preview);
+
   const [contents, setContents] = React.useState("");
   const changeContents = (e) => {
     setContents(e.target.value);
@@ -55,7 +57,14 @@ const PostWrite = (props) => {
             미리보기
           </Text>
         </Grid>
-        <Image shape="rectangle" />
+        <Image
+          shape="rectangle"
+          src={
+            preview
+              ? preview
+              : "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FFcJtE%2Fbtqumor6wPM%2F93muheE0QQkSKbKq3scGkK%2Fimg.png"
+          }
+        />
       </Grid>
 
       <Grid padding="14px">

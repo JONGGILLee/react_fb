@@ -67,6 +67,9 @@ const getPostFB = () => {
       let post_list = [];
       docs.forEach((doc) => {
         let _post = doc.data();
+        console.log(doc);
+        console.log(doc.data());
+        console.log(doc.data().contents);
 
         // _post 의 키 값들을 배열로 만들어 준다.->['comment_cnt', 'contents', .. ]
         let post = Object.keys(_post).reduce(
